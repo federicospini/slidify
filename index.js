@@ -1,1 +1,1 @@
-module.exports = require('./lib/connect-slidify.js');
+module.exports = require('./lib/slidify.js');
