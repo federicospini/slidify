@@ -1,0 +1,22 @@
+{
+  "author": "Federico Spini <federico.spini@gmail.com>",
+  "name": "connect-slidify",
+  "description": "Connect middleware - Markdown slides render engine",
+  "version": "0.0.1",
+  "homepage": "https://github.com/spini/slidify",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spini/slidify.git"
+  },
+  "main": "",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "superagent": ">=0.12.4",
+    "mustache": "0.7.2",
+    "highlight.js":"7.3.0",
+    "marked": "0.2.8"
+  },
+  "devDependencies": {}
+}
