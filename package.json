@@ -2,7 +2,7 @@
   "author": "Federico Spini <federico.spini@gmail.com>",
   "name": "slidify",
   "description": "Markdown slides render engine",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "homepage": "https://github.com/spini/slidify",
   "repository": {
     "type": "git",
