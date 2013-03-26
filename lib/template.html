@@ -32,21 +32,34 @@ h2 {
 
 <script>
 var slides;
-var current = 0;
+var current = 1;
 var next;
 var max = Math.max;
 var min = Math.min;
 
-function init () {
-  slides = document.querySelectorAll('article');
-
+function hide () {
   //hide all
   for (var i = 0; i < slides.length; i += 1) {
     slides[i].style.display = 'none';
   }
+}
 
-  //show the first
-  slides[0].style.display = 'block';
+function show (n) {
+  var next = n;
+  var selector = '[data-slide="' + n + '"]';
+  if (next < slides.length) {
+    document.querySelector(selector).style.display = 'block';
+  }
+}
+
+function change (n) {
+  hide();
+  show(n);
+  current = n;
+}
+
+function init () {
+  slides = document.querySelectorAll('article');
 
   //handle slide change
   document.addEventListener('keydown', function (event) {
@@ -54,31 +67,33 @@ function init () {
 
     if (code === 37 || code === 38) {
       next = current - 1;
-      if (next >= 0) {
-        slides[current].style.display = 'none';
-        slides[next].style.display = 'block';
-        current = next;
+      if (next >= 1) {
+        window.location.hash = next;
       }
     } else if (code === 39 || code === 40) {
       next = current + 1;
       if (next < slides.length) {
-        slides[current].style.display = 'none';
-        slides[next].style.display = 'block';
-        current = next;
+        window.location.hash = next;
       }
     } else if (code === 8) {
-      slides[current].style.display = 'none';
-      current = 0;
-      slides[current].style.display = 'block';
+      current = 1;
+      window.location.hash = current;
     }
-
-    console.log('current slide: ' + current);
   });
 }
+
+function on_hashchange () {
+  var slide = +window.location.hash.substr(1);
+  change(slide);
+}
+
+window.addEventListener('hashchange', on_hashchange);
 
 document.onreadystatechange = function () {
   if (document.readyState == "complete") {
     init();
+    var slide = +window.location.hash.substr(1) || 1;
+    change(slide);
   }
 }
 </script>
