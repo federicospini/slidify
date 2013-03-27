@@ -47,7 +47,7 @@ function hide () {
 function show (n) {
   var next = n;
   var selector = '[data-slide="' + n + '"]';
-  if (next < slides.length) {
+  if (next <= slides.length) {
     document.querySelector(selector).style.display = 'block';
   }
 }
@@ -72,7 +72,7 @@ function init () {
       }
     } else if (code === 39 || code === 40) {
       next = current + 1;
-      if (next < slides.length) {
+      if (next <= slides.length) {
         window.location.hash = next;
       }
     } else if (code === 8) {
