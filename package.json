@@ -13,7 +13,7 @@
     "node": "*"
   },
   "dependencies": {
-    "superagent": ">=0.12.4",
+    "superagent": "0.12.4",
     "mustache": "0.7.2",
     "highlight.js":"7.3.0",
     "marked": "0.2.8"
